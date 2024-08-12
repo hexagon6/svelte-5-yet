@@ -1,7 +1,7 @@
 <script>
   import dompurify from 'dompurify'
   import { parse } from 'marked'
-  //   const { sanitize } = dompurify
+  const { sanitize } = dompurify
   let { data } = $props()
 
   const {
@@ -48,7 +48,7 @@
       <div class="card">
         <b>{name}</b>
         <sub>published: {new Date(published_at).toLocaleDateString()}</sub>
-        <div>{@html html}</div>
+        <div>{@html sanitize(html)}</div>
       </div>
     {/each}
   {/if}
